@@ -669,7 +669,6 @@ An object expression.
 interface ObjectMember <: Node {
   key: Expression;
   computed: boolean;
-  value: Expression;
   decorators: [ Decorator ];
 }
 ```
@@ -680,6 +679,7 @@ interface ObjectMember <: Node {
 interface ObjectProperty <: ObjectMember {
   type: "ObjectProperty";
   shorthand: boolean;
+  value: Expression;
 }
 ```
 
@@ -946,7 +946,7 @@ interface TemplateElement <: Node {
   type: "TemplateElement";
   tail: boolean;
   value: {
-    cooked: string;
+    cooked: string | null;
     raw: string;
   };
 }
